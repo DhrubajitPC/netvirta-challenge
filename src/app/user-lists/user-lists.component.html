@@ -1,0 +1,55 @@
+<div class="mat-elevation-z8">
+  <mat-table matSort #table [dataSource]="users">
+    <!-- checkbox -->
+    <ng-container matColumnDef="select">
+      <mat-header-cell  *matHeaderCellDef><input type="checkbox"></mat-header-cell>
+      <mat-cell *matCellDef><input type="checkbox"></mat-cell>
+    </ng-container>
+    
+    <!-- image -->
+    <ng-container matColumnDef="img">
+      <mat-header-cell *matHeaderCellDef>IMG</mat-header-cell>
+      <mat-cell *matCellDef="let user"><img [src]="user.img_url" alt=""></mat-cell>
+    </ng-container>
+    
+    <!-- first name -->
+    <ng-container matColumnDef="first_name">
+      <mat-header-cell mat-sort-header *matHeaderCellDef>First Name</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{ user.first_name }}</mat-cell>
+    </ng-container>
+    
+    <!-- last name -->
+    <ng-container matColumnDef="last_name">
+      <mat-header-cell mat-sort-header *matHeaderCellDef>Last Name</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{ user.last_name }}</mat-cell>
+    </ng-container>
+    
+    <!-- birth date -->
+    <ng-container matColumnDef="birth_date">
+      <mat-header-cell mat-sort-header *matHeaderCellDef>Birth Date</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{ user.birth_date | date:"MM-dd-yyyy" }}</mat-cell>
+    </ng-container>
+    
+    <!-- country -->
+    <ng-container matColumnDef="country">
+      <mat-header-cell mat-sort-header *matHeaderCellDef>Country</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{ user.country }}</mat-cell>
+    </ng-container>
+    
+    <!-- status -->
+    <ng-container matColumnDef="status">
+      <mat-header-cell mat-sort-header *matHeaderCellDef>Uncomplete</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{ user.status }}</mat-cell>
+    </ng-container>
+    
+    <!-- actions -->
+    <!-- <ng-mat-sort-header container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+      <mat-cell>hi</mat-cell>
+    </ng-container> -->
+    
+    <mat-header-row *matHeaderRowDef="displayedColumns" class="table-headers"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    
+  </mat-table>
+</div>

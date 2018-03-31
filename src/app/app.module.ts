@@ -45,6 +45,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { UserListsComponent } from './user-lists/user-lists.component';
 
 @NgModule({
   exports: [
@@ -93,6 +94,7 @@ export class MaterialModule {}
     HeaderComponent,
     LoginComponent,
     HomeComponent,
+    UserListsComponent,
   ],
   imports: [
     BrowserModule,
