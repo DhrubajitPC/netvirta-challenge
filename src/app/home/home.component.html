@@ -1,3 +1,20 @@
-<p>
-  home works!
-</p>
+<div class="main">
+  <mat-drawer-container class="example-container" [style.height.px]="innerHeight">
+    <mat-drawer mode="side" opened="true" class="left-nav">
+      <mat-list dense>
+        <mat-list-item class="highlighted">
+          <a>Cases</a>
+        </mat-list-item>
+        <mat-list-item>
+          <a>Create</a>
+        </mat-list-item>
+        <mat-list-item>
+          <p>Admin</p>
+        </mat-list-item>
+      </mat-list>
+    </mat-drawer>
+    <mat-drawer-content class="right-content">
+      <app-user-lists></app-user-lists>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

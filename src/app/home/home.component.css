@@ -1,0 +1,24 @@
+.example-container {
+  margin-top: 3px;
+}
+.left-nav {
+  background-color: black;
+  color: white;
+  padding: 10px 0;
+  width: 20%;
+}
+.left-nav a {
+  color: white;
+}
+.left-nav p {
+  color: white;
+}
+.highlighted {
+  border-left: 1px solid red;
+}
+.highlighted a {
+  color: red;
+}
+.right-content {
+  padding: 20px;
+}

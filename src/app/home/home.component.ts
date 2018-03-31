@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  headerHeight: number = document.getElementsByTagName('header')[0].offsetHeight;
+  innerHeight:number = window.innerHeight - this.headerHeight - 8 - 3;
 
   constructor() { }
-
   ngOnInit() {
   }
-
+  
 }
