@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {CdkTableModule} from '@angular/cdk/table';
 import {
@@ -42,6 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   exports: [
@@ -78,7 +80,8 @@ import { LoginComponent } from './login/login.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-  ]
+  ],
+  imports: [AppRoutingModule]
 })
 export class MaterialModule {}
 
@@ -94,6 +97,7 @@ export class MaterialModule {}
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    NgbModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
