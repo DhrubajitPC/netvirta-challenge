@@ -2,8 +2,18 @@
   <mat-table matSort #table [dataSource]="users">
     <!-- checkbox -->
     <ng-container matColumnDef="select">
-      <mat-header-cell  *matHeaderCellDef><input type="checkbox"></mat-header-cell>
-      <mat-cell *matCellDef><input type="checkbox"></mat-cell>
+      <mat-header-cell  *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+      </mat-cell>
     </ng-container>
     
     <!-- image -->

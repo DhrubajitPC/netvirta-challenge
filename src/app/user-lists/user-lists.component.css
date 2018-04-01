@@ -2,7 +2,3 @@ img {
   max-width: 40px;
   object-fit: contain;
 }
-.table-headers {
-  border: 1px solid lightgray;
-  border-top: none;
-}

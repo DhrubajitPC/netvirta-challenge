@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatTableDataSource, MatSort} from '@angular/material';
+import { MatTableDataSource, MatSort } from '@angular/material';
+import { SelectionModel } from '@angular/cdk/collections';
 import { USERS } from '../mock-users';
 import { User } from '../user';
 
@@ -10,8 +11,8 @@ import { User } from '../user';
 })
 export class UserListsComponent implements OnInit {
   displayedColumns: string[] = ['select', 'img', 'first_name', 'last_name', 'birth_date', 'country', 'status'];  
-  users = new MatTableDataSource(USERS);
-
+  users = new MatTableDataSource<User>(USERS);
+  selection = new SelectionModel<User>(true, []);
   @ViewChild(MatSort) sort: MatSort;
 
   constructor() {}
@@ -24,4 +25,15 @@ export class UserListsComponent implements OnInit {
     this.users.sort = this.sort;
   }
   
+  isAllSelected(): boolean {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.users.data.length;
+    return numSelected === numRows;
+  }
+
+  masterToggle(): void {
+    this.isAllSelected() ?
+      this.selection.clear() :
+      this.users.data.forEach(row => this.selection.select(row));
+  }
 }
