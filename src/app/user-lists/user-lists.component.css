@@ -2,3 +2,10 @@ img {
   max-width: 40px;
   object-fit: contain;
 }
+.paginator {
+  /* background: red; */
+  /* color: blue; */
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+}

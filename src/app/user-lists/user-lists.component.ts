@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { USERS } from '../mock-users';
 import { User } from '../user';
@@ -14,15 +14,19 @@ export class UserListsComponent implements OnInit {
   users = new MatTableDataSource<User>(USERS);
   selection = new SelectionModel<User>(true, []);
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor() {}
   
   ngOnInit() {
     console.log(this.users);
   }
-
+  
   ngAfterViewInit() {
     this.users.sort = this.sort;
+    this.users.paginator = this.paginator;
+    this.users.paginator._intl.previousPageLabel = 'Previous';
+    this.users.paginator._intl.nextPageLabel = 'Next';
   }
   
   isAllSelected(): boolean {

@@ -67,3 +67,11 @@
     
   </mat-table>
 </div>
+
+<div class="mat-elevation-z8">
+  <mat-paginator #paginator
+    [length]="users.data.length"
+    [showFirstLastButtons]="true"
+    [pageSize]="3" class="paginator">    
+  </mat-paginator>
+</div>
