@@ -10,7 +10,7 @@ import { User } from '../user';
   styleUrls: ['./user-lists.component.css']
 })
 export class UserListsComponent implements OnInit {
-  displayedColumns: string[] = ['select', 'img', 'first_name', 'last_name', 'birth_date', 'country', 'status'];  
+  displayedColumns: string[] = ['select', 'img', 'first_name', 'last_name', 'birth_date', 'country', 'status', 'actions'];  
   users = new MatTableDataSource<User>(USERS);
   selection = new SelectionModel<User>(true, []);
   @ViewChild(MatSort) sort: MatSort;
@@ -35,5 +35,9 @@ export class UserListsComponent implements OnInit {
     this.isAllSelected() ?
       this.selection.clear() :
       this.users.data.forEach(row => this.selection.select(row));
+  }
+
+  edit(user): void {
+    console.log(user);
   }
 }
