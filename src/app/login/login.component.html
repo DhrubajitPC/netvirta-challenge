@@ -1,13 +1,16 @@
 <div class="login">
   <h3>Please Login</h3>
-  <form action="" class="login-form">
+  <div *ngIf="error" class="error">
+    <p>Incorrect Username or Password. Please try again.</p>
+  </div>
+  <div class="login-form">
     <mat-form-field>
-      <input matInput placeholder="Username">
+      <input [(ngModel)]="email" matInput placeholder="Email">
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'">
+      <input [(ngModel)]="password" matInput placeholder="Password" [type]="hide ? 'password' : 'text'">
       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
     </mat-form-field>
-    <button mat-button type="submit">Login</button>
-  </form>
+    <button mat-button type="submit" (click)="login(event)">Login</button>
+  </div>
 </div>

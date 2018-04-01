@@ -11,3 +11,10 @@
   justify-content: space-around;
   padding: 10% 33%;
 }
+
+.error {
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 0 5px;
+}

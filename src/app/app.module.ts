@@ -47,6 +47,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { UserListsComponent } from './user-lists/user-lists.component';
 
+import { UserService } from './user.service';
+import { AuthGuard } from './auth.guard';
+
 @NgModule({
   exports: [
     CdkTableModule,
@@ -105,7 +108,7 @@ export class MaterialModule {}
     NgbModule.forRoot(),
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
