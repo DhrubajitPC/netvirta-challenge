@@ -49,6 +49,7 @@ import { UserListsComponent } from './user-lists/user-lists.component';
 
 import { UserService } from './user.service';
 import { AuthGuard } from './auth.guard';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   exports: [
@@ -98,6 +99,7 @@ export class MaterialModule {}
     LoginComponent,
     HomeComponent,
     UserListsComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -109,6 +111,7 @@ export class MaterialModule {}
     AppRoutingModule,
   ],
   providers: [UserService, AuthGuard],
+  entryComponents: [EditUserComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
