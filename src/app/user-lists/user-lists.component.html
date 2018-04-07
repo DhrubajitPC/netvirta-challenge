@@ -1,5 +1,5 @@
-<div class="mat-elevation-z8">
-  <mat-table matSort #table [dataSource]="users">
+<div class="mat-elevation-z1">
+  <mat-table matSort #table [dataSource]="users" filter="searchMessage">
     <!-- checkbox -->
     <ng-container matColumnDef="select">
       <mat-header-cell  *matHeaderCellDef>
@@ -68,11 +68,10 @@
 </mat-table>
 </div>
 
-<div class="mat-elevation-z8">
+<div class="mat-elevation-z1">
   <mat-paginator #paginator
-  [length]="users.data.length"
-  [showFirstLastButtons]="true"
-  [pageSize]="3" class="paginator">    
-</mat-paginator>
+    [length]="users.data.length"
+    [showFirstLastButtons]="true"
+    [pageSize]="3" class="paginator">    
+  </mat-paginator>
 </div>
-

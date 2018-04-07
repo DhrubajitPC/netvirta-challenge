@@ -5,6 +5,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { USERS } from '../mock-users';
 import { User } from '../user';
 import { EditUserComponent } from '../edit-user/edit-user.component';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-user-lists',
@@ -16,13 +17,18 @@ export class UserListsComponent implements OnInit {
   users = new MatTableDataSource<User>(USERS);
   selection = new SelectionModel<User>(true, []);
   user: User;
+  searchMessage: string;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private data: SearchService) {}
 
   ngOnInit() {
     console.log(this.users);
+    this.data.currentMessage.subscribe(message => {
+      this.searchMessage = message;
+      this.filterUsers();
+    });
   }
   
   ngAfterViewInit() {
@@ -54,4 +60,7 @@ export class UserListsComponent implements OnInit {
     });
   }
 
+  filterUsers(): void {
+    this.users.filter = this.searchMessage;
+  }
 }
