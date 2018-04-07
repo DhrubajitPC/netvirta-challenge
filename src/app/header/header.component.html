@@ -3,14 +3,12 @@
     <a href="/"><p class="client-brand">Client Name/logo</p></a>
     <p>Company name and Logo</p>
   </div>
-  <div class="nav-buttons">
-    <div ngbDropdown class="d-inline-block">
-      <button mat-button id="dropdownBasic1" ngbDropdownToggle>Settings</button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button class="dropdown-item">Action - 1</button>
-        <button class="dropdown-item">Action - 2</button>
-      </div>
-    </div>
+    <div>
+    <button mat-button [matMenuTriggerFor]="menu">Settings</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
     <button mat-button>Log Out</button>
   </div>
 </header>
