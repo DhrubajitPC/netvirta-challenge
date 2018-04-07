@@ -48,8 +48,10 @@ import { HomeComponent } from './home/home.component';
 import { UserListsComponent } from './user-lists/user-lists.component';
 
 import { UserService } from './user.service';
+import { SearchService } from './search.service';
 import { AuthGuard } from './auth.guard';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { FiltersComponent } from './filters/filters.component';
 
 @NgModule({
   exports: [
@@ -100,6 +102,7 @@ export class MaterialModule {}
     HomeComponent,
     UserListsComponent,
     EditUserComponent,
+    FiltersComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,7 +113,7 @@ export class MaterialModule {}
     NgbModule.forRoot(),
     AppRoutingModule,
   ],
-  providers: [UserService, AuthGuard],
+  providers: [UserService, SearchService, AuthGuard],
   entryComponents: [EditUserComponent],
   bootstrap: [AppComponent]
 })
