@@ -1,0 +1,10 @@
+<mat-card class="filter-body mat-elevation-z1">
+  Filter component
+  <input 
+    placeholder="Search"
+    class="search"
+    type="search"
+    [ngModel]="searchInput"
+    (ngModelChange) = "searchOnChange($event)"
+    >
+</mat-card>
