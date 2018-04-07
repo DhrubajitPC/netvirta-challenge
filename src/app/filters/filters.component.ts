@@ -8,13 +8,19 @@ import { SearchService } from '../search.service';
 })
 export class FiltersComponent implements OnInit {
 
+  searchInput: string;
   constructor(private data: SearchService) { }
 
   ngOnInit() {
   }
 
-  searchOnChange(val) {
+  searchOnChange(val): void {
     this.data.changeMessage(val);
+  }
+
+  resetSearch(): void {
+    this.searchInput = '';
+    this.data.changeMessage('');
   }
 
 }

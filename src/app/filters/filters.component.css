@@ -1,10 +1,20 @@
 .filter-body {
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .search {
   background-color: rgb(239,239,239);
   border: none;
   font-size: 12px;
   padding: 8px;
+  width: 100%;
+}
+.searchContainer {
   width: 40%;
+}
+h4 {
+  color: red;
+  font-size: 14px;
 }
